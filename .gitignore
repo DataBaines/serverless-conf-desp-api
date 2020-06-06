@@ -1,0 +1,8 @@
+# package directories
+node_modules
+jspm_packages
+/Model/users.js
+
+# Serverless directories
+.serverless
+dbconfigmysql
