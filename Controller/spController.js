@@ -2,7 +2,6 @@ const db = require('../dbconnect');
 
 module.exports.GetAllConfirmedDespatches = async (event) => { 
  
-
     let sql = 'CALL GetAllConfirmedDespatches("'
     sql += event.queryStringParameters.parYearWeek
     sql+= '","'
