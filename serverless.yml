@@ -48,18 +48,6 @@ functions:
             resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: request
-  deleteconfirmed_despatch:
-    handler: Controller/confirmed_despatchController.deleteconfirmed_despatch
-    events:
-      - http:
-          path: /confirmed_despatch/{id}
-          method: DELETE
-          cors: true
-          authorizer:
-            name: basicAuth
-            resultTtlInSeconds: 0
-            identitySource: method.request.header.Authorization
-            type: request
   deleteconfirmed_despatches:
     handler: Controller/confirmed_despatchController.deleteconfirmed_despatches
     events:
@@ -97,18 +85,6 @@ functions:
             resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: request
-  deletedespatch_parcel:
-    handler: Controller/despatch_parcelController.deletedespatch_parcel
-    events:
-      - http:
-          path: /despatch_parcel/{id}
-          method: DELETE
-          cors: true
-          authorizer:
-            name: basicAuth
-            resultTtlInSeconds: 0
-            identitySource: method.request.header.Authorization
-            type: request
   deletedespatch_parcels:
     handler: Controller/despatch_parcelController.deletedespatch_parcels
     events:
@@ -140,18 +116,6 @@ functions:
       - http:
           path: /dpd_invoices
           method: POST
-          cors: true
-          authorizer:
-            name: basicAuth
-            resultTtlInSeconds: 0
-            identitySource: method.request.header.Authorization
-            type: request
-  deletedpd_invoice:
-    handler: Controller/dpd_invoiceController.deletedpd_invoice
-    events:
-      - http:
-          path: /dpd_invoice/{id}
-          method: DELETE
           cors: true
           authorizer:
             name: basicAuth

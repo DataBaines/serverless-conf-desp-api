@@ -87,44 +87,6 @@ module.exports.insertconfirmed_despatches = async (event, context, callback) => 
     }
 };
 
-module.exports.deleteconfirmed_despatch = async (event, context, callback) => {
- //   context.callbackWaitsForEmptyEventLoop = false;
-    const id = event.pathParameters.id;
-    const sql = 'DELETE FROM confirmed_despatch WHERE id = ' + id +' ;';
-
-    try {    
-        const data = await new Promise((resolve, reject) => {
-            db.query(sql, function (err, result) {  
-                if (err) {  
-                    console.log("Error->" + err);     
-                    reject(err);        
-                }            
-                resolve(result);  
-            } );       
-        }); 
-
-        return { 
-            statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },  
-            body: JSON.stringify(data) 
-              
-        }
-    } 
-    catch (err) {    
-        return {   
-            statusCode: 400,   
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },
-            body: JSON.stringify(err)
-        } 
-    }
-};
-
 
 module.exports.deleteconfirmed_despatches = async (event, context, callback) => {
     

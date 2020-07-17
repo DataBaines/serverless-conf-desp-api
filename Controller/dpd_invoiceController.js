@@ -4,20 +4,6 @@ module.exports.insertdpd_invoices = async (event, context, callback) => {
     const reqBody = JSON.parse(event.body);
     var bodyData = [];
 
-    // if (
-    //     !reqBody.title ||
-    //     reqBody.title.trim() === '' ||
-    //     !reqBody.body ||
-    //     reqBody.body.trim() === ''
-    // ) {
-    //     return callback(
-    //     null,
-    //     response(400, {
-    //         error: 'Post must have a title and body and they must not be empty'
-    //     })
-    //     );
-    // }
-
     reqBody.forEach(function(obj){
         bodyData.push([
             obj.Date1,
@@ -86,44 +72,6 @@ module.exports.insertdpd_invoices = async (event, context, callback) => {
                     resolve(result);  
                 }
             );       
-        }); 
-
-        return { 
-            statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },  
-            body: JSON.stringify(data) 
-              
-        }
-    } 
-    catch (err) {    
-        return {   
-            statusCode: 400,   
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
-            },
-            body: JSON.stringify(err)
-        } 
-    }
-};
-
-module.exports.deletedpd_invoice = async (event, context, callback) => {
- //   context.callbackWaitsForEmptyEventLoop = false;
-    const id = event.pathParameters.id;
-    const sql = 'DELETE FROM dpd_invoice WHERE id = ' + id +' ;';
-
-    try {    
-        const data = await new Promise((resolve, reject) => {
-            db.query(sql, function (err, result) {  
-                if (err) {  
-                    console.log("Error->" + err);     
-                    reject(err);        
-                }            
-                resolve(result);  
-            } );       
         }); 
 
         return { 
