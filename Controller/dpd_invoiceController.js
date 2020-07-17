@@ -150,8 +150,8 @@ module.exports.deletedpd_invoice = async (event, context, callback) => {
 
 module.exports.deletedpd_invoices = async (event, context, callback) => {
     //   context.callbackWaitsForEmptyEventLoop = false;
-       const id = event.pathParameters.parYearWeek;
-       const sql = 'DELETE FROM dpd_invoice WHERE YearWeek = ? AND Id <> 0;';
+       const id = event.pathParameters.parInvoiceNumber;
+       const sql = 'DELETE FROM dpd_invoice WHERE InvoiceNumber = ? AND Id <> 0;';
    
        try {    
            const data = await new Promise((resolve, reject) => {
