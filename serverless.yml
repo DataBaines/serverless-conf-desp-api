@@ -52,7 +52,7 @@ functions:
     handler: Controller/confirmed_despatchController.deleteconfirmed_despatches
     events:
       - http:
-          path: /confirmed_despatches/{parYearWeek}
+          path: /confirmed_despatches/byyearweek/{parYearWeek}
           method: DELETE
           cors: true
           authorizer:
@@ -89,7 +89,7 @@ functions:
     handler: Controller/despatch_parcelController.deletedespatch_parcels
     events:
       - http:
-          path: /despatch_parcels/{parYearWeek}
+          path: /despatch_parcels/byyearweek/{parYearWeek}
           method: DELETE
           cors: true
           authorizer:
@@ -122,11 +122,11 @@ functions:
             resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: request
-  deletedpd_invoices:
-    handler: Controller/dpd_invoiceController.deletedpd_invoices
+  deletedpd_invoicesbyinvoicenumber:
+    handler: Controller/dpd_invoiceController.deletedpd_invoicesbyinvoicenumber
     events:
       - http:
-          path: /dpd_invoices/{parInvoiceNumber}
+          path: /dpd_invoices/byinvoicenumber/{parInvoiceNumber}
           method: DELETE
           cors: true
           authorizer:
