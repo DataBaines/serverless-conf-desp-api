@@ -126,7 +126,7 @@ functions:
     handler: Controller/dpd_invoiceController.deletedpd_invoicesbyinvoicenumber
     events:
       - http:
-          path: /dpd_invoices/byinvoicenumber/{parInvoiceNumber}
+          path: /dpd_invoices/byinvno/{parInvoiceNumber}
           method: DELETE
           cors: true
           authorizer:
