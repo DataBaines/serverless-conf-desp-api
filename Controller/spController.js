@@ -248,6 +248,135 @@ module.exports.GetYearWeeks = async (event) => {
     }
 }; 
 
+module.exports.GetInvBySRefPc = async (event) => { 
+
+    let sql = 'CALL GetInvBySRefPc("'
+    sql += event.queryStringParameters.parSenderRef
+    sql+= '","'
+    sql += event.queryStringParameters.parDelPostcode
+    sql+= '");'
+
+    try {    
+        const data = await new Promise((resolve, reject) => {
+            db.query(sql, function (err, result) {  
+                if (err) {  
+                    console.log("Error->" + err);     
+                    reject(err);        
+                }            
+                resolve(result);  
+            } );       
+        }); 
+
+        return { 
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },  
+            body: JSON.stringify(data) 
+              
+        }
+    } 
+    catch (err) {    
+        return {   
+            statusCode: 400,   
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(err)
+        } 
+    }
+}; 
+
+module.exports.GetParcBySRefPc = async (event) => { 
+
+    let sql = 'CALL GetParcBySRefPc("'
+    sql += event.queryStringParameters.parSenderRef
+    sql+= '","'
+    sql += event.queryStringParameters.parDelPostcode
+    sql+= '");'
+
+    try {    
+        const data = await new Promise((resolve, reject) => {
+            db.query(sql, function (err, result) {  
+                if (err) {  
+                    console.log("Error->" + err);     
+                    reject(err);        
+                }            
+                resolve(result);  
+            } );       
+        }); 
+
+        return { 
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },  
+            body: JSON.stringify(data) 
+              
+        }
+    } 
+    catch (err) {    
+        return {   
+            statusCode: 400,   
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(err)
+        } 
+    }
+}; 
+
+module.exports.GetInvExceptions = async (event) => { 
+
+    let sql = 'CALL GetInvExceptions("'
+    sql += event.queryStringParameters.parStartDate
+    sql+= '","'
+    sql += event.queryStringParameters.parEndDate
+    sql+= '","'
+    sql += event.queryStringParameters.parIsOrphan
+    sql+= '","'
+    sql += event.queryStringParameters.parIsMultiLine
+    sql+= '","'
+    sql += event.queryStringParameters.parCustomer
+    sql+= '");'
+
+    try {    
+        const data = await new Promise((resolve, reject) => {
+            db.query(sql, function (err, result) {  
+                if (err) {  
+                    console.log("Error->" + err);     
+                    reject(err);        
+                }            
+                resolve(result);  
+            } );       
+        }); 
+
+        return { 
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },  
+            body: JSON.stringify(data) 
+              
+        }
+    } 
+    catch (err) {    
+        return {   
+            statusCode: 400,   
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(err)
+        } 
+    }
+}; 
+
 module.exports.GetCustWeeklyDespatchSummary = async (event) => { 
 
     let sql = 'CALL GetCustomerWeeklyDespatchSummary("'

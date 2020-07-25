@@ -96,7 +96,7 @@ module.exports.insertdpd_invoices = async (event, context, callback) => {
     }
 };
 
-module.exports.deletedpd_invoicesbyinvoicenumber = async (event, context, callback) => {
+module.exports.deletedpd_invoicesbyinvno = async (event, context, callback) => {
     //   context.callbackWaitsForEmptyEventLoop = false;
        const id = event.pathParameters.parInvoiceNumber;
        const sql = 'DELETE FROM dpd_invoice WHERE InvoiceNumber = ? AND Id <> 0;';

@@ -122,8 +122,8 @@ functions:
             resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: request
-  deletedpd_invoicesbyinvoicenumber:
-    handler: Controller/dpd_invoiceController.deletedpd_invoicesbyinvoicenumber
+  deletedpd_invoicesbyinvno:
+    handler: Controller/dpd_invoiceController.deletedpd_invoicesbyinvno
     events:
       - http:
           path: /dpd_invoices/byinvno/{parInvoiceNumber}
@@ -200,6 +200,42 @@ functions:
     events:
       - http:
           path: /sp/GetYearWeeks
+          method: GET
+          cors: true
+          authorizer:
+            name: basicAuth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
+            type: request
+  GetInvBySRefPc:
+    handler: Controller/spController.GetInvBySRefPc
+    events:
+      - http:
+          path: /sp/GetInvBySRefPc
+          method: GET
+          cors: true
+          authorizer:
+            name: basicAuth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
+            type: request
+  GetParcBySRefPc:
+    handler: Controller/spController.GetParcBySRefPc
+    events:
+      - http:
+          path: /sp/GetParcBySRefPc
+          method: GET
+          cors: true
+          authorizer:
+            name: basicAuth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
+            type: request
+  GetInvExceptions:
+    handler: Controller/spController.GetInvExceptions
+    events:
+      - http:
+          path: /sp/GetInvExceptions
           method: GET
           cors: true
           authorizer:
