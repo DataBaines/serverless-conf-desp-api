@@ -36,14 +36,14 @@ module.exports.insertconfirmed_despatches = async (event, context, callback) => 
             obj.Spare1,
             obj.Spare2,
             obj.Spare3,
-            obj.Spare4,
+            obj.PostcodeIx,
             obj.YearWeek      
              ]);
     });
 
     let sql = 'INSERT INTO confirmed_despatch (`Customer`, `Ref1`, `Ref2`, `Ref3`, `DespDate`, `Packages`, `Products`,'
     sql += ' `Totalqty`, `Postcode`, `DeliveryName`, `PostageCarrier`, `PostageService`, `Cost`, `Spare1`, `Spare2`, '
-    sql += ' `Spare3`, `Spare4`, `YearWeek`) VALUES ? ;'
+    sql += ' `Spare3`, `PostcodeIx`, `YearWeek`) VALUES ? ;'
 
     
     try {    

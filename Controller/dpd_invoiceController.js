@@ -42,7 +42,7 @@ module.exports.insertdpd_invoices = async (event, context, callback) => {
             obj.Spare1,
             obj.Spare2,
             obj.Spare3,
-            obj.Spare4,
+            obj.DelPostcodeIx,
             obj.YearWeek 
              ]);
     });
@@ -52,7 +52,7 @@ module.exports.insertdpd_invoices = async (event, context, callback) => {
     sql += ' `SenderRef`,`Weight`,`VatCode`,`SurchargeCode`,`TotalCost`,`RevenueCost`,`FuelSurcharge`,`ThirdPartyCharge`,`FourthpartyCharge`, '
     sql += ' `CongestionCharge`,`CustomsCharge`,`ReturnToConsignorCharge`,`FailedDelCharge`,`ScottishDelCharge`, '
     sql += ' `DutyCharge`,`HandlingCharge`,`contractualliabilityCharge`,`EuExportRetCharge`,`OverseasExportCharge`, '
-    sql += ' `CoverCharge`,`CountryCode`,`Country`,`DeliveryAddress`,`Spare1`,`Spare2`,`Spare3`,`Spare4`,`YearWeek` '
+    sql += ' `CoverCharge`,`CountryCode`,`Country`,`DeliveryAddress`,`Spare1`,`Spare2`,`Spare3`,`DelPostcodeIx`,`YearWeek` '
     sql += ') VALUES ? ;'
         
     try {    
